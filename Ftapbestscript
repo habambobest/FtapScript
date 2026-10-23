@@ -1,0 +1,247 @@
+-- Tải Orion Library
+local OrionLib = loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/Orion/main/source'))()
+
+-- Tạo Cửa Sổ (Window)
+local Window = OrionLib:MakeWindow({
+    Name = "FTAP Multi-Script Hub", 
+    HidePremium = false, 
+    SaveConfig = true, 
+    ConfigFolder = "FTAPHubConfig"
+})
+
+-- Tạo 2 Tab FTAP
+local TabFTAP1 = Window:MakeTab({ Name = "FTAP (1-15)", Icon = "rbxassetid://4483345998", PremiumOnly = false })
+local TabFTAP2 = Window:MakeTab({ Name = "FTAP (16-32)", Icon = "rbxassetid://4483345998", PremiumOnly = false })
+
+-- ==========================================
+-- TAB 1: FTAP (1 -> 15)
+-- ==========================================
+TabFTAP1:AddButton({
+    Name = "1. Vortex",
+    Callback = function()
+        loadstring(game:HttpGet("https://rawscripts.net/raw/Fling-Things-and-People-FTAP-Vortex-Hub-228539"))()
+    end    
+})
+
+TabFTAP1:AddButton({
+    Name = "2. Apex V2",
+    Callback = function()
+        loadstring(game:HttpGet("https://paste.c-net.org/HorridPrivate"))()
+    end    
+})
+
+TabFTAP1:AddButton({
+    Name = "3. NeverLose",
+    Callback = function()
+        loadstring(game:HttpGet("https://pastefy.app/ATPWcoEb/raw"))()
+    end    
+})
+
+TabFTAP1:AddButton({
+    Name = "4. Blitz",
+    Callback = function()
+        loadstring(game:HttpGet("https://pastefy.app/BHQ1xXjK/raw"))()
+    end    
+})
+
+TabFTAP1:AddButton({
+    Name = "5. XOCU 2",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/dray29471-del/VIZERbest/refs/heads/main/VIZERbest.lua"))()
+    end    
+})
+
+TabFTAP1:AddButton({
+    Name = "6. Oblivion",
+    Callback = function()
+        loadstring(game:HttpGet("https://gist.githubusercontent.com/safonovmaksima-commits/65ca3fad4743c91ebbf5fadf5bebe066/raw/ed95e5a9b06de9b134422c0531e3aa406cd9af7b/vhr222"))()
+    end    
+})
+
+TabFTAP1:AddButton({
+    Name = "7. Fake Resonance (Visual Only)",
+    Callback = function()
+        loadstring(game:HttpGet("https://pastefy.app/FNbok8Ua/raw"))()
+    end    
+})
+
+TabFTAP1:AddButton({
+    Name = "8. Unstable",
+    Callback = function()
+        loadstring(game:HttpGet("https://doitenroi.win/paste/rlKgQK/raw"))()
+    end    
+})
+
+TabFTAP1:AddButton({
+    Name = "9. Bloody V2",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/celestialteam/youhateme/refs/heads/main/BloodyPremiumCrack.lua"))()
+    end    
+})
+
+TabFTAP1:AddButton({
+    Name = "10. Pluton",
+    Callback = function()
+        loadstring(game:HttpGet("https://doitenroi.win/paste/A1x9Ra/raw"))()
+    end    
+})
+
+TabFTAP1:AddButton({
+    Name = "11. Poop Hub Premium",
+    Callback = function()
+        loadstring(game:HttpGet("https://paste.c-net.org/VacatePicking"))()
+    end    
+})
+
+TabFTAP1:AddButton({
+    Name = "12. Lunar",
+    Callback = function()
+        loadstring(game:HttpGet("https://pastefy.app/bscLo4n8/raw"))()
+    end    
+})
+
+TabFTAP1:AddButton({
+    Name = "13. Unknown Hub (Kotakbas)",
+    Callback = function()
+        loadstring(game:HttpGet("https://pastefy.app/LXAlE7iF/raw"))()
+    end    
+})
+
+TabFTAP1:AddButton({
+    Name = "14. Ragalic",
+    Callback = function()
+        loadstring(game:HttpGet("https://pastefy.app/Chk68Dbv/raw"))()
+    end    
+})
+
+TabFTAP1:AddButton({
+    Name = "15. Rr9",
+    Callback = function()
+        loadstring(game:HttpGet("https://pastefy.app/aVIt6mOJ/raw"))()
+    end    
+})
+
+-- ==========================================
+-- TAB 2: FTAP (16 -> 32)
+-- ==========================================
+TabFTAP2:AddButton({
+    Name = "16. Allun",
+    Callback = function()
+        loadstring(game:HttpGet("https://pastefy.app/OrWdkmOz/raw"))()
+    end    
+})
+
+TabFTAP2:AddButton({
+    Name = "17. Mobile Trigger Bot",
+    Callback = function()
+        loadstring(game:HttpGet("https://pastefy.app/srfwxE0M/raw"))()
+    end    
+})
+
+TabFTAP2:AddButton({
+    Name = "18. Fanatic FTAP",
+    Callback = function()
+        loadstring(game:HttpGet("https://pastefy.app/oEI0KErG/raw"))()
+    end    
+})
+
+TabFTAP2:AddButton({
+    Name = "19. Fatalytyz",
+    Callback = function()
+        loadstring(game:HttpGet("https://pastefy.app/q8DLEIpm/raw"))()
+    end    
+})
+
+TabFTAP2:AddButton({
+    Name = "20. Fosfor Visuals",
+    Callback = function()
+        loadstring(game:HttpGet("https://pastefy.app/I0P2dXal/raw"))()
+    end    
+})
+
+TabFTAP2:AddButton({
+    Name = "21. Tokra",
+    Callback = function()
+        loadstring(game:HttpGet("https://pastefy.app/ccBEGiz7/raw"))()
+    end    
+})
+
+TabFTAP2:AddButton({
+    Name = "22. Ekonans (Lỗi/Bugged)",
+    Callback = function()
+        loadstring(game:HttpGet("https://pastefy.app/F0nKbxWU/raw"))()
+    end    
+})
+
+TabFTAP2:AddButton({
+    Name = "23. TheWorst Free Original",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/m1kp0/ftap/refs/heads/main/TheWorstFreeLoader.lua"))()
+    end    
+})
+
+TabFTAP2:AddButton({
+    Name = "24. NNHub",
+    Callback = function()
+        loadstring(game:HttpGet("https://pastefy.app/72XjOBdT/raw"))()
+    end    
+})
+
+TabFTAP2:AddButton({
+    Name = "25. Eris",
+    Callback = function()
+        loadstring(game:HttpGet("https://pastefy.app/PTcKa7zg/raw"))()
+    end    
+})
+
+TabFTAP2:AddButton({
+    Name = "26. Nile",
+    Callback = function()
+        loadstring(game:HttpGet("https://pastefy.app/w0TpJ7bn/raw"))()
+    end    
+})
+
+TabFTAP2:AddButton({
+    Name = "27. NeoLose",
+    Callback = function()
+        loadstring(game:HttpGet("https://pastefy.app/X3CmLQHP/raw"))()
+    end    
+})
+
+TabFTAP2:AddButton({
+    Name = "28. Silent Target Hub",
+    Callback = function()
+        loadstring(game:HttpGet("https://pastefy.app/v9CUbtQQ/raw"))()
+    end    
+})
+
+TabFTAP2:AddButton({
+    Name = "29. Savitar",
+    Callback = function()
+        loadstring(game:HttpGet("https://paste.c-net.org/FleetDisgrace"))()
+    end    
+})
+
+TabFTAP2:AddButton({
+    Name = "30. Drun Script (Always answer DA)",
+    Callback = function()
+        loadstring(game:HttpGet("https://paste.c-net.org/BeggingShady"))()
+    end    
+})
+
+TabFTAP2:AddButton({
+    Name = "31. Mercury",
+    Callback = function()
+        loadstring(game:HttpGet("https://paste.c-net.org/ResignDolly"))()
+    end    
+})
+
+TabFTAP2:AddButton({
+    Name = "32. The Revenge",
+    Callback = function()
+        loadstring(game:HttpGet("https://paste.c-net.org/CornerKeepers"))()
+    end    
+})
+
+-- Khởi tạo Orion UI
+OrionLib:Init()
