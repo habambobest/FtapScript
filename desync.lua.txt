@@ -1,0 +1,120 @@
+if _G.connections then
+    for _, connection in pairs(_G.connections) do
+        connection:Disconnect()
+    end
+    _G.connections = nil
+end
+
+repeat
+    task.wait()
+until game.Players.LocalPlayer
+
+local player = game.Players.LocalPlayer
+local character = nil
+local humanoid = nil
+local humanoidRootPart = nil
+local isInvisible = false
+local characterParts = {}
+
+local function updateCharacter()
+    character = player.Character or player.CharacterAdded:Wait()
+    humanoid = character:WaitForChild('Humanoid')
+    humanoidRootPart = character:WaitForChild('HumanoidRootPart')
+    characterParts = {}
+    
+    for _, descendant in pairs(character:GetDescendants()) do
+        if descendant:IsA('BasePart') and descendant.Transparency == 0 then
+            table.insert(characterParts, descendant)
+        end
+    end
+end
+
+local function toggleInvisibility()
+    isInvisible = not isInvisible
+    for _, part in pairs(characterParts) do
+        part.Transparency = part.Transparency == 0 and 0.5 or 0
+    end
+end
+
+local function createGUI()
+    local screenGui = Instance.new('ScreenGui')
+    local toggleButton = Instance.new('TextButton')
+    
+    toggleButton.Size = UDim2.new(0, 100, 0, 50)
+    toggleButton.Position = UDim2.new(0.5, -50, 0.1, 0)
+    toggleButton.Text = 'Invisible'
+    toggleButton.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+    toggleButton.Parent = screenGui
+    screenGui.Parent = player:WaitForChild('PlayerGui')
+    
+    local isDragging = false
+    local dragStart = nil
+    local buttonStartPos = nil
+    
+    toggleButton.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 then
+            isDragging = true
+            dragStart = input.Position
+            buttonStartPos = toggleButton.Position
+        end
+    end)
+    
+    toggleButton.InputChanged:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseMovement and isDragging then
+            local delta = input.Position - dragStart
+            toggleButton.Position = UDim2.new(
+                buttonStartPos.X.Scale, 
+                buttonStartPos.X.Offset + delta.X,
+                buttonStartPos.Y.Scale, 
+                buttonStartPos.Y.Offset + delta.Y
+            )
+        end
+    end)
+    
+    toggleButton.InputEnded:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 then
+            isDragging = false
+        end
+    end)
+    
+    toggleButton.MouseButton1Click:Connect(function()
+        toggleInvisibility()
+    end)
+end
+
+updateCharacter()
+createGUI()
+
+local connections = {nil, nil}
+
+connections[1] = player.GetMouse(player).KeyDown:Connect(function(key)
+    if key == 'g' then
+        toggleInvisibility()
+    end
+end)
+
+connections[2] = game:GetService('RunService').Heartbeat:Connect(function()
+    if isInvisible then
+        local originalCFrame = humanoidRootPart.CFrame
+        local originalCameraOffset = humanoid.CameraOffset
+        
+        local newCFrame = originalCFrame * CFrame.new(0, -200000, 0)
+        local cameraOffset = newCFrame:ToObjectSpace(CFrame.new(originalCFrame.Position)).Position
+        
+        humanoidRootPart.CFrame = newCFrame
+        humanoid.CameraOffset = cameraOffset
+        
+        game:GetService('RunService').RenderStepped:Wait()
+        
+        humanoidRootPart.CFrame = originalCFrame
+        humanoid.CameraOffset = originalCameraOffset
+    end
+end)
+
+player.CharacterAdded:Connect(function()
+    isInvisible = false
+    updateCharacter()
+    createGUI()
+end)
+
+_G.connections = connections
